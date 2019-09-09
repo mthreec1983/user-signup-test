@@ -9,6 +9,7 @@ import javax.validation.constraints.Size;
 /**
  * Created by LaunchCode
  */
+
 @Entity
 public class Cheese {
 
