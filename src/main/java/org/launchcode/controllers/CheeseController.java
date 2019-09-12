@@ -71,7 +71,7 @@ public class CheeseController {
             cheeseDao.delete(cheeseId);
         }
 
-        return "redirect:";
+        return "redirect:/cheese";
     }
     @RequestMapping(value = "edit/{cheeseId}", method = RequestMethod.GET)
     public String displayEditCheeseForm(Model model, @PathVariable int cheeseId) {

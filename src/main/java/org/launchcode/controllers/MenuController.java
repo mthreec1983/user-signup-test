@@ -40,7 +40,7 @@ public class MenuController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String adds(Model model, @ModelAttribute @Valid Menu newMenu, Errors errors) {
+    public String add(Model model, @ModelAttribute @Valid Menu newMenu, Errors errors) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Menu");
@@ -99,6 +99,6 @@ public class MenuController {
             menuDao.delete(menuId);
         }
 
-        return "redirect:";
+        return "redirect:/menu";
     }
 }
