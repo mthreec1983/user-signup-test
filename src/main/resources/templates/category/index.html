@@ -13,5 +13,7 @@
     <li th:each="category : ${categories}"
         th:text="${category.getName()}"></li>
 </ul>
+<a th:href="@{category/add}">Add</a> |
+<a th:href="@{category/remove}">Remove</a>
 </body>
 </html>

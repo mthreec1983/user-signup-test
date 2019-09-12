@@ -9,6 +9,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 
@@ -47,6 +48,23 @@ public class CategoryController {
             return "category/add";
         }
         categoryDao.save(category);
+        return "redirect:/category";
+    }
+    @RequestMapping(value = "remove", method = RequestMethod.GET)
+    public String displayRemoveCategoryForm(Model model) {
+        model.addAttribute("category", categoryDao.findAll());
+        model.addAttribute("title", "Remove Category");
+        return "category/remove";
+
+    }
+
+    @RequestMapping(value = "remove", method = RequestMethod.POST)
+    public String processRemoveCategoryForm(@RequestParam int[] categoryIds) {
+
+        for (int categoryId : categoryIds) {
+            categoryDao.delete(categoryId);
+        }
+
         return "redirect:/category";
     }
 }
