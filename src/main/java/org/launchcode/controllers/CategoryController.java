@@ -87,6 +87,6 @@ public class CategoryController {
         editedCategory.setName(newCategory.getName());
         categoryDao.save(editedCategory);
 
-        return "redirect:/Category";
+        return "redirect:/category";
     }
 }
