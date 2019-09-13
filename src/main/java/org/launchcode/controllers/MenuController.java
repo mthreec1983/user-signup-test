@@ -25,6 +25,9 @@ public class MenuController {
     @Autowired
     private MenuDao menuDao;
 
+    @Autowired
+    private CategoryDao categoryDao;
+
     @RequestMapping(value = "")
     public String index(Model model) {
         model.addAttribute("title", "Menus");
@@ -98,6 +101,32 @@ public class MenuController {
         for (int menuId : menuIds) {
             menuDao.delete(menuId);
         }
+
+        return "redirect:/menu";
+    }
+    @RequestMapping(value = "edit/{menuId}", method = RequestMethod.GET)
+    public String displayEditMenuForm(Model model, @PathVariable int menuId) {
+
+        model.addAttribute("title", "Edit Menu");
+        model.addAttribute("menu", menuDao.findOne(menuId));
+//        model.addAttribute("categories", categoryDao.findAll());
+        return "menu/edit";
+    }
+
+    @RequestMapping(value = "edit/{menuId}", method = RequestMethod.POST)
+    public String processEditForm(Model model, @PathVariable int menuId, @ModelAttribute  @Valid Menu newMenu,
+                                  Errors errors) {
+
+        if (errors.hasErrors()) {
+            model.addAttribute("title", "Add Menu");
+            return "menu/edit";
+        }
+
+        Menu editedMenu = menuDao.findOne(menuId);
+        editedMenu.setName(newMenu.getName());
+//        editedMenu.setDescription(newMenu.getDescription());
+//        editedMenu.setCategory(categoryDao.findOne(categoryId));
+        menuDao.save(editedMenu);
 
         return "redirect:/menu";
     }
