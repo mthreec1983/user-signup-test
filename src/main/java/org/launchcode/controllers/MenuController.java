@@ -109,7 +109,6 @@ public class MenuController {
 
         model.addAttribute("title", "Edit Menu");
         model.addAttribute("menu", menuDao.findOne(menuId));
-//        model.addAttribute("categories", categoryDao.findAll());
         return "menu/edit";
     }
 
@@ -124,8 +123,6 @@ public class MenuController {
 
         Menu editedMenu = menuDao.findOne(menuId);
         editedMenu.setName(newMenu.getName());
-//        editedMenu.setDescription(newMenu.getDescription());
-//        editedMenu.setCategory(categoryDao.findOne(categoryId));
         menuDao.save(editedMenu);
 
         return "redirect:/menu";

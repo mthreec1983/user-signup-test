@@ -13,6 +13,19 @@
     <li th:each="category : ${categories}"
         th:text="${category.getName()}"></li>
 </ul>
+<table class="table">
+
+    <tr>
+        <th>Edit</th>
+        <th>Name</th>
+    </tr>
+
+    <tr th:each="category : ${categories}">
+        <td><a th:href="'category/edit/' + ${category.id}" th:text="Edit"></a></td>
+        <td th:text="${category.name}"></td>
+    </tr>
+</table>
+
 <a th:href="@{category/add}">Add</a> |
 <a th:href="@{category/remove}">Remove</a>
 </body>

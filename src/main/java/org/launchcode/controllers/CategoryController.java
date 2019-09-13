@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -68,5 +65,28 @@ public class CategoryController {
         }
 
         return "redirect:/category";
+    }
+    @RequestMapping(value = "edit/{categoryId}", method = RequestMethod.GET)
+    public String displayEditCategoryForm(Model model, @PathVariable int categoryId) {
+
+        model.addAttribute("title", "Edit Category");
+        model.addAttribute("category", categoryDao.findOne(categoryId));
+        return "category/edit";
+    }
+
+    @RequestMapping(value = "edit/{categoryId}", method = RequestMethod.POST)
+    public String processEditForm(Model model, @PathVariable int categoryId, @ModelAttribute @Valid Category newCategory,
+                                  Errors errors) {
+
+        if (errors.hasErrors()) {
+            model.addAttribute("title", "Add Category");
+            return "category/edit";
+        }
+
+        Category editedCategory = categoryDao.findOne(categoryId);
+        editedCategory.setName(newCategory.getName());
+        categoryDao.save(editedCategory);
+
+        return "redirect:/Category";
     }
 }
