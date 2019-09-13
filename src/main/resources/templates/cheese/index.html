@@ -11,14 +11,14 @@
 <p th:unless="${cheeses} and ${cheeses.size()}">no cheese :(</p>
 
 
-<table class="table">
+<table class="table table-bordered">
 
     <tr>
         <th>Edit</th>
         <th>Name</th>
         <th>Description</th>
         <th>Category</th>
-        <th>Menu</th>
+<!--        <th>Menu</th>-->
     </tr>
 
     <tr th:each="cheese : ${cheeses}">
@@ -31,8 +31,8 @@
 
 </table>
 
-<a th:href="@{cheese/add}">Add</a> |
-<a th:href="@{cheese/remove}">Remove</a>
+<a class="btn btn-primary" th:href="@{cheese/add}">Add Cheese</a>
+<a class="btn btn-default" th:href="@{cheese/remove}">Remove</a>
 
 </body>
 </html>

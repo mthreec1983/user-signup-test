@@ -8,7 +8,7 @@
 
 <nav th:replace="fragments :: navigation"></nav>
 
-<table class="table">
+<table class="table table-bordered">
 
     <tr>
         <th>Edit</th>
@@ -21,7 +21,8 @@
     </tr>
 </table>
 
-<a th:href="@{category/add}">Add</a> |
-<a th:href="@{category/remove}">Remove</a>
+<a class="btn btn-primary" th:href="@{category/add}">Add Category</a>
+<a class="btn btn-default" th:href="@{category/remove}">Remove</a>
+
 </body>
 </html>

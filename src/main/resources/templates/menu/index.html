@@ -10,7 +10,7 @@
 
         <p th:unless="${menus} and ${menus.size()}">no menus :(</p>
 
-        <table class="table">
+        <table class="table table-bordered">
 
         <tr>
             <th>Edit</th>
@@ -23,9 +23,8 @@
         </tr>
         </table>
 
-        <a th:href="@{menu/add}">Add Menu</a>
-
-        <a th:href="@{menu/remove}">Remove</a>
+        <a class="btn btn-primary" th:href="@{menu/add}">Add Menu</a>
+        <a class="btn btn-default" th:href="@{menu/remove}">Remove</a>
 
     </body>
 </html>
