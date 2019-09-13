@@ -2,6 +2,7 @@ package org.launchcode.controllers;
 
 import org.launchcode.models.Category;
 import org.launchcode.models.data.CategoryDao;
+import org.launchcode.models.data.CheeseDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,9 +21,8 @@ public class CategoryController {
     @Autowired
     private CategoryDao categoryDao;
 
-    public CategoryDao getCategoryDao() {
-        return categoryDao;
-    }
+    @Autowired
+    private CheeseDao cheeseDao;
 
     @RequestMapping(value = "")
     public String index(Model model) {
@@ -54,6 +54,8 @@ public class CategoryController {
     public String displayRemoveCategoryForm(Model model) {
         model.addAttribute("categories", categoryDao.findAll());
         model.addAttribute("title", "Remove Category");
+        model.addAttribute("cheeses", cheeseDao.findAll());
+        model.addAttribute("title", "Remove Cheese");
         return "category/remove";
 
     }
