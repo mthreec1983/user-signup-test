@@ -37,7 +37,7 @@ public class MenuController {
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String add(Model model) {
-        model.addAttribute("title", "Add menu");
+        model.addAttribute("title", "Add Menu");
         model.addAttribute(new Menu());
         return "menu/add";
     }

@@ -33,7 +33,7 @@ public class CategoryController {
     @RequestMapping(value="add", method= RequestMethod.GET)
     public String adds(Model model) {
 
-        model.addAttribute("title", "Category");
+        model.addAttribute("title", "Add Category");
         model.addAttribute("category", new Category());
         return "category/add";
     }
@@ -42,6 +42,7 @@ public class CategoryController {
     public String adds(Model model, @ModelAttribute @Valid Category category, Errors errors) {
 
         if (errors.hasErrors()) {
+            model.addAttribute("title", "Add Category");
             return "category/add";
         }
         categoryDao.save(category);
