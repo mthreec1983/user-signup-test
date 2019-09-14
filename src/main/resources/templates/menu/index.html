@@ -7,7 +7,7 @@
         <h1 th:text="${title}">Default Title</h1>
 
         <nav th:replace="fragments :: navigation"></nav>
-
+        <p></p>
         <p th:unless="${menus} and ${menus.size()}">no menus :(</p>
 
         <table class="table table-bordered">
@@ -23,8 +23,8 @@
         </tr>
         </table>
 
-        <a class="btn btn-primary" th:href="@{menu/add}">Add Menu</a>
-        <a class="btn btn-default" th:href="@{menu/remove}">Remove Menu</a>
+        <a class="btn btn-primary btn-xs" th:href="@{menu/add}">Add Menu</a>
+        <a class="btn btn-default btn-xs" th:href="@{menu/remove}">Remove Menu</a>
 
     </body>
 </html>

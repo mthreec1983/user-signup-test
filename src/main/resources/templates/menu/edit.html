@@ -6,7 +6,7 @@
         <h1 th:text="${title}">Default Title</h1>
 
         <nav th:replace="fragments :: navigation"></nav>
-
+        <p></p>
         <form method="post" style="max-width:600px;" th:object="${menu}">
             <div class="form-group">
                 <label th:for="name">Name</label>
@@ -14,7 +14,7 @@
                 <span th:errors="*{name}" class="error"></span>
             </div>
 
-            <input type="submit" value="Edit Menu" />
+            <input class="btn btn-primary btn-xs" type="submit" value="Edit Menu" />
         </form>
 
     </body>

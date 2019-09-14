@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
     <head th:replace="fragments :: head"></head>
@@ -8,7 +7,7 @@
         <h1 th:text="${title}">Default Title</h1>
 
         <nav th:replace="fragments :: navigation"></nav>
-
+        <p></p>
         <table class="table table-bordered">
 
             <tr>
@@ -20,7 +19,7 @@
             </tr>
         </table>
 
-        <p><a class="btn btn-primary"  th:href="'/menu/add-item/' + ${menu.id}">Add Cheese</a></p>
+        <p><a class="btn btn-default btn-xs"  th:href="'/menu/add-item/' + ${menu.id}">Add Cheese</a></p>
 
     </body>
 </html>

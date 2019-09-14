@@ -7,7 +7,7 @@
 <h1 th:text="${title}">Default Title</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
-
+<p></p>
 <table class="table table-bordered">
 
     <tr>
@@ -21,8 +21,8 @@
     </tr>
 </table>
 
-<a class="btn btn-primary" th:href="@{category/add}">Add Category</a>
-<a class="btn btn-default" th:href="@{category/remove}">Remove Category</a>
+<a class="btn btn-primary btn-xs" th:href="@{category/add}">Add Category</a>
+<a class="btn btn-default btn-xs" th:href="@{category/remove}">Remove Category</a>
 
 </body>
 </html>
