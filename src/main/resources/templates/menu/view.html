@@ -14,8 +14,8 @@
                 <th>Name</th>
             </tr>
 
-            <tr>
-                <td><a th:each="cheese : ${menu.cheeses}" th:text="${cheese.name}"></a></td>
+            <tr th:each="cheese : ${menu.cheeses}">
+                <td th:text="${cheese.name}"></td>
             </tr>
         </table>
 
